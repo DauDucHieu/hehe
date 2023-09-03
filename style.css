@@ -5,6 +5,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Baloo 2', cursive;
+    user-select: none;
 }
 
 body {

@@ -129,15 +129,18 @@ async function getDataFromServer() {
     toggleFilterCashFlow(false)
 }
 
+
+data = localStorage.svData
+$('#name-list').innerHTML = data.map(i => {
+    return `<option value="${i.name}"></option>`
+}).join('')
+toggleFilterCashFlow(false)
+
 if(window.navigator.onLine) {
     getDataFromServer()
     toggleFilterCashFlow(false)
 } else {
-    data = localStorage.svData
-    $('#name-list').innerHTML = data.map(i => {
-        return `<option value="${i.name}"></option>`
-    }).join('')
-    toggleFilterCashFlow(false)
+    
 }
 
 
@@ -200,8 +203,8 @@ function renderData(dataToRender) {
         `
     })
     $('.cash-flow .filter .board span').innerText = filters[filterIndex]
-    $('#money-down').innerText = moneyDown
-    $('#money-up').innerText = moneyUp
+    $('#money-down').innerText = formatMoney(moneyDown)
+    $('#money-up').innerText = formatMoney(moneyUp)
     $('.content .detail .list').innerHTML = listHtml
 }
 
