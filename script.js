@@ -1,4 +1,5 @@
 if(localStorage.isDataSync === undefined) localStorage.isDataSync = true
+if(localStorage.svData === undefined) localStorage.svData = JSON.stringify('[]')
 
 function perc2color(perc) {
     var r, g, b = 0;
@@ -129,8 +130,8 @@ async function getDataFromServer() {
     toggleFilterCashFlow(false)
 }
 
-
 data = JSON.parse(localStorage.svData)
+data = JSON.parse(data)
 console.log(data, typeof data)
 $('#name-list').innerHTML = data.map(i => {
     return `<option value="${i.name}"></option>`
