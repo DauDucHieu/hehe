@@ -14,58 +14,13 @@ function perc2color(perc) {
     var h = r * 0x10000 + g * 0x100 + b * 0x1;
     return '#' + ('000000' + h.toString(16)).slice(-6);
 }
-
 const bg = document.querySelector('.content .cash-flow .main')
 bg.style.backgroundColor = perc2color(100);
 
 const date = new Date()
-
 const $ = document.querySelector.bind(document)
-
-function greating() {
-    const greatingElement = $('.greating')
-    const h = date.getHours()
-    if (h >= 4 && h < 11) {
-        greatingElement.innerText = 'Good morning!'
-    } else if (h < 13) {
-        greatingElement.innerText = 'Good noon!'
-    } else if (h <= 18) {
-        greatingElement.innerText = 'Good afternoon!'
-    } else {
-        greatingElement.innerText = 'Good evening!'
-    }
-}
-
-let data = [
-    {
-        name: 'This is the task name',
-        money: 10_000,
-        isDown: true,
-        time: (new Date()).toDateString()
-    },
-    {
-        name: 'This is the task name',
-        money: 20_000,
-        isDown: true,
-        time: (new Date()).toDateString()
-    },
-    {
-        name: 'name',
-        money: 10000,
-        isDown: false,
-        time: (new Date('12/2/2020')).toDateString()
-    },
-    {
-        name: 'This is the task name',
-        money: 30_000,
-        isDown: true,
-        time: (new Date('12/1/2020')).toDateString()
-    }
-]
-
+let data = []
 const dataRender = []
-
-
 const groupElement = $('#group')
 
 function groupData() {
@@ -106,9 +61,8 @@ function groupData() {
     return result
 }
 
-
 const filters = ['All', 'Day', 'Week', 'Month', 'Year']
-let filterIndex = -1
+let filterIndex = 0
 function toggleFilterCashFlow(toggle = true) {
     if(toggle) ++filterIndex
     if (filterIndex >= filters.length) filterIndex = 0
@@ -161,7 +115,6 @@ function toggleFilterCashFlow(toggle = true) {
 }
 $('.cash-flow .filter').addEventListener('click', toggleFilterCashFlow)
 
-
 async function getDataFromServer() {
     const response = await fetch("https://excited-time-grandiflora.glitch.me/");
     const d = await response.json();
@@ -181,6 +134,9 @@ if(window.navigator.onLine) {
     toggleFilterCashFlow(false)
 } else {
     data = localStorage.svData
+    $('#name-list').innerHTML = data.map(i => {
+        return `<option value="${i.name}"></option>`
+    }).join('')
     toggleFilterCashFlow(false)
 }
 
@@ -326,8 +282,6 @@ groupElement.addEventListener('input', () => {
     else renderData(dataRender)
 })
 
-greating()
-toggleFilterCashFlow()
 
 
 async function getData() {
@@ -360,3 +314,21 @@ window.addEventListener('online', () => {
             $('.sync').classList.add('green')
         })
 })
+
+
+function greating() {
+    const greatingElement = $('.greating')
+    const h = date.getHours()
+    if (h >= 4 && h < 11) {
+        greatingElement.innerText = 'Good morning!'
+    } else if (h < 13) {
+        greatingElement.innerText = 'Good noon!'
+    } else if (h <= 18) {
+        greatingElement.innerText = 'Good afternoon!'
+    } else {
+        greatingElement.innerText = 'Good evening!'
+    }
+}
+
+greating()
+toggleFilterCashFlow(false)
