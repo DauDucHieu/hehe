@@ -131,6 +131,7 @@ async function getDataFromServer() {
 
 
 data = JSON.parse(localStorage.svData)
+console.log(data, typeof data)
 $('#name-list').innerHTML = data.map(i => {
     return `<option value="${i.name}"></option>`
 }).join('')
