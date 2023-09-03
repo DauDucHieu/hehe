@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+    
+    <div class="container">
+
+        <div class="sync red" style="position: absolute; right: 10px; top: 25px;">@</div>
+
+        <div class="header">
+            <div class="image">
+                <!-- <img src="https://i.ibb.co/BLKtzDj/image.png" alt=""> -->
+                <!-- <img src="https://i.ibb.co/KLwQGXm/image.png" alt=""> -->
+                <img src="https://i.ibb.co/xGGmx9w/image.png" alt="">
+            </div>
+            <div class="text">
+                <span class="greating">Good Morning!</span>
+                <span class="name">Dau Duc Hieu</span>
+            </div>
+        </div>
+
+        <div class="content">
+
+            <div class="cash-flow">
+                <div class="filter">
+                    <div class="arrow"></div>
+                    <div class="board">
+                        <span>All</span>
+                    </div>
+                </div>
+                <div class="main">
+                    <span class="out"><span class="t-icon red">↓</span><span id="money-down">0</span></span>
+                    <span class="in"><span class="t-icon green">↑</span><span id="money-up">0</span></span>
+                </div>
+            </div>
+
+            <div class="detail">
+                <div class="heading">
+                    <h3>Details</h3>
+                    <div>
+                        <label for="group">Group</label>
+                        <input type="checkbox" id="group">
+                    </div>
+                </div>
+                <div class="list">
+                    <div class="item">
+                        <div class="name">
+                            Go to school with friends! jsdnli lorem
+                            <ul>
+                                <li>abc</li>
+                                <li>abc</li>
+                                <li>abc</li>
+                            </ul>
+                        </div>
+                        <div class="info">
+                            <span class="red">-25k</span>
+                            <span class="small blur">25/07/2023</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="navbar">
+                    <div class="add">
+                        <span>+</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="input hidden">
+            <div class="overlay"></div>
+            <div class="board">
+                <div>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" list="name-list">
+                </div>
+                <div>
+                    <label for="money">Money:</label>
+                    <input type="number" id="money">
+                    <label style="margin-left: 5px;" class="switch">
+                        <input type="checkbox" id="up-down">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <div class="preview">
+                    <div class="item">
+                        <div class="name">This is preview for your task</div>
+                        <div class="info">
+                            <span class="red show-money"><span class="plus">-</span><span class="money">0</span></span>
+                            <span class="small blur date">25/07/2023</span>
+                        </div>
+                    </div>
+                </div>
+                <button id="btn-add">ADD</button>
+                <button id="btn-cancel">Cancel</button>
+            </div>
+            <datalist id="name-list">
+                <option value="optine"></option>
+            </datalist>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

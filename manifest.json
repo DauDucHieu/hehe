@@ -1,0 +1,16 @@
+{
+    "short_name": "DDH",
+    "name": "DDH manager cash flow app",
+    "icons": [
+        {
+            "src": "https://i.ibb.co/NWVmxzs/image.png",
+            "type": "image/png",
+            "sizes": "192x192"
+        }
+    ],
+    "start_url": "index.html",
+    "background_color": "#3367D6",
+    "display": "standalone",
+    "scope": "/",
+    "theme_color": "#3367D6"
+}
